@@ -1,0 +1,29 @@
+﻿﻿@model IEnumerable<WebApplication2.Models.Movie>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detail Page";
+}
+
+
+<section>
+
+
+    @foreach (var mv in Model)
+    {
+        if (@mv.Id == ViewBag.ID)
+        {
+            <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">@mv.Title</h5>
+                            <p class="card-text">@mv.Description</p>
+                            <p class="card-text"><strong>Duration :</strong>@mv.Duration</p>
+                            <p class="card-text"><strong>Released Date :</strong>@mv.ReleaseDate.Date</p>
+                            <p class="card-text"><strong>Show Time :</strong>@mv.Show.Showtime</p>
+                            <p class="card-text"><strong>Available Seat :</strong>@mv.Show.AvailableSeats</p>
+                            <a href="/Booking/Book/@mv.Id" class="btn btn-primary">Booking</a>
+                        </div>
+            </div>
+         
+        }
+    }
+</section>

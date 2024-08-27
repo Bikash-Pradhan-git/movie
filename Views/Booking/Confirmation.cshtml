@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Confirm Page";
+}
+
+
+<section>
+    <div>
+        @Html.Label("Email :")
+        @ViewBag.email
+    </div>
+    <div>
+        @Html.Label("Your seat :")
+        @ViewBag.seats
+    </div>
+    <div>
+        @Html.Label("Your Show time :")
+        @ViewBag.t
+    </div>
+   <button type="submit"  onclick="go(event)">Confirm</button>
+</section>
+
+<script>
+    function go(event) {
+        
+        window.location.href = "/";
+    }
+</script>

@@ -1,0 +1,66 @@
+﻿﻿@model WebApplication2.Models.Movie
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Add Page";
+}
+
+<section>
+    <h1>Enter Movie Details</h1>
+
+    @using (Html.BeginForm("Add", "Movie", FormMethod.Post, new { @class = "p-3" }))
+    {
+        <div class="row my-2">
+
+            <div class="col ">
+                @Html.Label("Title", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+            </div>
+            <div class="col">
+                @Html.Label("Genre", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Genre, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col">
+                @Html.Label("Duration", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Duration, new { @class = "form-control", @type = "number", @min = "0", @step = ".01" })
+            </div>
+            <div class="col">
+                @Html.Label("DateTime", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.ReleaseDate, new { @class = "form-control", @type = "date" })
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col">
+                @Html.Label("Show Time", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Show.Showtime, new { @class = "form-control", @type = "time", @min = "0", @step = ".01" })
+            </div>
+            <div class="col">
+                @Html.Label("Available Seats", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Show.AvailableSeats, new { @class = "form-control", @type = "number" })
+            </div>
+        </div>
+
+
+        <div class="row my-2">
+            <div class="col">
+                @Html.Label("Description", new { @class = "form-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Enter Description" })
+            </div>
+            <div class="col">
+                @Html.Label("Id", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Id, new { @class = "form-control", @placeholder = "Enter Unique Id", @type = "number" })
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+           
+        </div>
+    }
+
+</section>

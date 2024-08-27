@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+
+@model IEnumerable<WebApplication2.Models.Movie>
+
+<section>
+
+    <table style="border:2px solid black;border-collapse:collapse;">
+        <tr>
+            <th style="border:2px solid black">Id</th>
+            <th style="border:2px solid black">Title</th>
+            <th style="border:2px solid black">Description</th>
+            <th style="border:2px solid black">Genre</th>
+            <th style="border:2px solid black">Duration</th>
+            <th style="border:2px solid black">Released Date</th>
+            <th style="border:2px solid black">Details</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border:2px solid black">@item.Id </td>
+                <td style="border:2px solid black">@item.Title </td>
+                <td style="border:2px solid black">@item.Description</td>
+                <td style="border:2px solid black">@item.Genre</td>
+                <td style="border:2px solid black">@item.Duration hours</td>
+                <td style="border:2px solid black">@item.ReleaseDate.Date</td>
+                <td style="border:2px solid black"><a href="/Movie/Details/@item.Id">Click here</a></td>
+            </tr>
+        }
+    </table>
+</section>

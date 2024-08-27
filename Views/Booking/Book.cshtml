@@ -1,0 +1,109 @@
+﻿﻿@model WebApplication2.Models.Booking
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Booking Page";
+}
+
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://thebrandinquirer.wordpress.com/wp-content/uploads/2019/07/1-cinepolis-nuevo-redisencc83o-new-logo-redesign-2019-brand-my-f-opinion-1.png" alt="" width="72" height="57">
+        </div>
+
+        <div class="row g-5">
+           
+            <div class="col-md col-lg">
+                <h4 class="mb-3">Book Your Ticket</h4>
+                @using (Html.BeginForm("Book", "Booking", FormMethod.Post, new { @class = "p-3" }))
+                {
+                    @Html.HiddenFor(model => model.ShowtimeId)
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            @Html.Label("User Name", new { @class = "form-label" })
+                            @Html.TextAreaFor(@model => model.UserName, new { @class = "form-control", @type = "text" })
+                        </div>
+
+
+                        <div class="col-12">
+
+                            @Html.Label("Email", new { @class = "form-label", @placeholder = "abc@example.com" })
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "email" })
+
+                        </div>
+
+                        <div class="col-12">
+
+                            @Html.Label("Total Seat", new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.NumberOfSeats, new { @class = "form-control", @type = "number" })
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">Payment</h4>
+
+                        <div class="my-3">
+                            <div class="form-check">
+
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                                <label class="form-check-label" for="credit">Credit card</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <label class="form-check-label" for="debit">Debit card</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <label class="form-check-label" for="paypal">PayPal</label>
+                            </div>
+                        </div>
+
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label">Name on card</label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="" required="" fdprocessedid="xojoge">
+                                <small class="text-muted">Full name as displayed on card</small>
+                                <div class="invalid-feedback">
+                                    Name on card is required
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">Credit card number</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required="" fdprocessedid="3fkook">
+                                <div class="invalid-feedback">
+                                    Credit card number is required
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-expiration" class="form-label">Expiration</label>
+                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="" fdprocessedid="kj09t">
+                                <div class="invalid-feedback">
+                                    Expiration date required
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="" fdprocessedid="wr61p4">
+                                <div class="invalid-feedback">
+                                    Security code required
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Book</button>
+
+                    </div>
+                }
+            </div>
+
+
+    
+        </main>
+
+</div>
